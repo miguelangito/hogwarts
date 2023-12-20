@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html{
+
+    background-image: url('imagenes/Harry_Potter_Hogwarts_castle_winter_architecture-2265070.jpg!d');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 62.5%;
+}
+
+h3 {
+
+    font-size: 4rem;
+}
+
+label{
+
+    font-size: 2rem;
+}
+
+body {
+
+    width: 80%;
+    margin: auto;
+    background: none;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+  
+}
+.header{
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3rem;
+    align-items: center;
+    
+
+}
+
+.formulario_interior{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.Imagen-hogwarts{
+
+    width: auto;
+    height: 20rem;
+}
+
+.information {
+
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+}
+
+.information input{
+    width: 70%;
+}
+
+
+
+.formulario input {
+
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin: 1rem;
+    background-color: beige;
+
+}
+
+form label {
+
+    color: white;
+}
+
+form button {
+
+    padding: 1rem 2rem 1rem 2rem;
+    width: 50%;
+    border-radius: 0.5rem;
+    margin: 3rem auto auto auto;
+    border: none;
+    color: gray;
+    
+}
+
+.cualidades{
+    height: 30px;
+    border-radius: 0.5rem;
+    border: none;
+    margin: 1rem;
+    background-color: rgb(244, 244, 180);
+}
+
+
+.boton_enviar{
+    padding: 1rem 2rem 1rem 2rem;
+    width: 20%;
+    border-radius: 0.5rem;
+    margin: 3rem auto auto auto;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border: solid rgb(210, 248, 43);
+    background-color: white;
+    text-shadow: 1px 1px 30px yellow;
+    background-color: rgb(189, 178, 184);
+}
+
+.boton_enviar:hover{
+    background-color: lightskyblue;
+    color: white;
+    text-shadow: 0 0 30px rgb(255, 255, 0);
+}
+
+.subtitulo_cualidades{
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    margin: 5%;
+}
