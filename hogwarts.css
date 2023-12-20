@@ -3,9 +3,13 @@
     margin: 0;
 }
 
+body{
+    flex: 1;
+}
+
 html{
 
-    background-image: url('imagenes/Harry_Potter_Hogwarts_castle_winter_architecture-2265070.jpg!d');
+    background-image: url('Harry_Potter_Hogwarts_castle_winter_architecture-2265070.jpg!d');
     background-size: cover;
     background-repeat: no-repeat;
     font-size: 62.5%;
@@ -134,4 +138,29 @@ form button {
     color: white;
     text-align: center;
     margin: 5%;
+}
+
+.formValores{
+    display: flex;
+    flex-direction: column;
+}
+
+.boton_enviar_valores{
+    padding: 1rem 2rem 1rem 2rem;
+    width: 40%;
+    border-radius: 0.5rem;
+    margin: 3rem auto auto auto;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border: solid rgb(210, 248, 43);
+    background-color: white;
+    text-shadow: 1px 1px 30px yellow;
+    background-color: rgb(189, 178, 184);
+}
+
+.boton_enviar_valores:hover{
+    background-color: lightskyblue;
+    color: white;
+    text-shadow: 0 0 30px rgb(255, 255, 0);
 }
