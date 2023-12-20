@@ -1,60 +1,62 @@
 let estudianteHogwarts={
-    nombre: "Alegna GrennBlack",
-    edad: "11",
+    nombre: "",
+    edad: "",
     familia: {
         padre: "Lucius Black",
         madre: "Evelyn Green"
     },
-    linaje: "Sangre Pura",
+    linaje: "",
     casa: "",
     animalPatronus:"",
-    cualidades: ["Ambicion, Determinacion, Astucia"],
+    cualidades: "",
 };
 
 const boton = document.querySelector("#envio")
 console.log(boton);
 boton.addEventListener("click",function () {
-    const seleccion = document.querySelector(".formulario");
+    boton.preventDefault()
+    guardarDatos()  
     
-    const nombreEstudiante = document.querySelector("#nombre").value
-    console.log(`Aca esta ${nombreEstudiante}`);
-    console.log(typeof (nombreEstudiante));
-    const edadEstudiante = document.querySelector("#edad").value
-    const linajeEstudiante = document.querySelector("#linaje").value
-
-    const datos = {
-        nombre:nombreEstudiante,
-        edad:edadEstudiante,
-        linaje:linajeEstudiante
-    }
-
-
-    seleccion.innerHTML = "";
-
-    seleccion.innerHTML = `<body>
-    <h3 class="subtitulo_cualidades">Seleccione sus Cualidades para saber su casa</h3>
-    <div class="formValores">
-        <select name="Cualidades" id="cualidades" class= "cualidades" >
-                <option value="Gryffindor">Valor, fuerza, audacia</option>
-                <option value="Hufflepuff">Justicia, Lealtad, Paciencia</option>
-                <option value="Ravenclaw">Creatividad, Erudiccion, Inteligencia</option>
-                <option value="Slytherin">Ambicion, Determinacion, Astucia</option>
-                <option value="selecciona" selected hidden>Selecciona una opcion</option>
-        </select>
-    </div>`
+    borrarDatos()
 
     
 } )
 
+function borrarDatos() {
+    
+    const seleccion = document.querySelector(".formulario");    
+    seleccion.innerHTML = `<body>
+    <h3 class="subtitulo_cualidades">Seleccione sus Cualidades para saber su casa</h3>
+    <div class="formValores">
+    <select name="Cualidades" id="cualidades" class= "cualidades" >
+    <option value="Gryffindor">Valor, fuerza, audacia</option>
+    <option value="Hufflepuff">Justicia, Lealtad, Paciencia</option>
+    <option value="Ravenclaw">Creatividad, Erudiccion, Inteligencia</option>
+    <option value="Slytherin">Ambicion, Determinacion, Astucia</option>
+    <option value="selecciona" selected hidden>Selecciona una opcion</option>
+    </select>
+    <button id="envio" class="boton_enviar_valores">Enviar</button>
+    </div>`
+    
+}
+
+function guardarDatos() {
+    estudianteHogwarts.nombre = document.querySelector("#nombre").value
+    estudianteHogwarts.edad = document.querySelector("#edad").value
+    estudianteHogwarts.linaje = document.querySelector("#linaje").value
+    
+    console.log(estudianteHogwarts)
+}
+
 const formulValores = document.querySelector("#formValores")
-console.log(formulValores);
+// console.log(formulValores);
 
 // formulValores.addEventListener("click", () => {
-//     const casa_cualidades = document.querySelector("#cualidades").value
-//     estudianteHogwarts.cualidades.push(casa_cualidades)
-//     console.log(estudianteHogwarts);
-// })
-
+    //     const casa_cualidades = document.querySelector("#cualidades").value
+    //     estudianteHogwarts.cualidades.push(casa_cualidades)
+    //     console.log(estudianteHogwarts);
+    // })
+    
 
 
 // let formulValores = document.getElementById("formValores")
@@ -96,9 +98,9 @@ let cena = {
     
 };
 
-cena.asignarCasa(estudianteHogwarts)
-console.log("casa", estudianteHogwarts.casa)
-console.log(`${estudianteHogwarts.nombre} ha sido seleccionado para la casa de ${estudianteHogwarts.casa}.`);
+// cena.asignarCasa(estudianteHogwarts)
+// console.log("casa", estudianteHogwarts.casa)
+// console.log(`${estudianteHogwarts.nombre} ha sido seleccionado para la casa de ${estudianteHogwarts.casa}.`);
 
 let claseTransformaciones = {
     profesor: clases.transformaciones,
@@ -124,6 +126,7 @@ let claseTransformaciones = {
         this.realizarTransformacionRiddikulus
     }
 };
+
 console.log(estudianteHogwarts.nombre)
 let clases = {
     transformaciones: "Profesor Kevin Slughorn",
@@ -192,5 +195,5 @@ let clasePociones = {
 
 }
 
-clasePociones.prepararPocion();
-clasePociones.aplicarConsecuencias();
+// clasePociones.prepararPocion();
+// clasePociones.aplicarConsecuencias();
