@@ -11,65 +11,66 @@ let estudianteHogwarts={
     cualidades: "",
 };
 
+
+
 const boton = document.querySelector("#envio")
-console.log(boton);
+
 boton.addEventListener("click",function () {
-    boton.preventDefault()
     guardarDatos()  
     
     borrarDatos()
-
-    
 } )
+
+const seleccion = document.querySelector(".formulario");    
 
 function borrarDatos() {
     
-    const seleccion = document.querySelector(".formulario");    
-    seleccion.innerHTML = `<body>
-    <h3 class="subtitulo_cualidades">Seleccione sus Cualidades para saber su casa</h3>
+    seleccion.innerHTML = `<h3 class="subtitulo_cualidades">Seleccione sus Cualidades para saber su casa</h3>
     <div class="formValores">
     <select name="Cualidades" id="cualidades" class= "cualidades" >
-    <option value="Gryffindor">Valor, fuerza, audacia</option>
-    <option value="Hufflepuff">Justicia, Lealtad, Paciencia</option>
-    <option value="Ravenclaw">Creatividad, Erudiccion, Inteligencia</option>
-    <option value="Slytherin">Ambicion, Determinacion, Astucia</option>
-    <option value="selecciona" selected hidden>Selecciona una opcion</option>
+    <option value="Gryffindor/Valor, fuerza, audacia">Valor, fuerza, audacia</option>
+    <option value="Hufflepuff/Justicia, Lealtad, Paciencia">Justicia, Lealtad, Paciencia</option>
+    <option value="Ravenclaw/Creatividad, Erudiccion, Inteligencia">Creatividad, Erudiccion, Inteligencia</option>
+    <option value="Slytherin/Ambicion, Determinacion, Astucia">Ambicion, Determinacion, Astucia</option>
+    <option value="selecciona" id="seleccionada" selected hidden>Selecciona una opcion</option>
     </select>
-    <button id="envio" class="boton_enviar_valores">Enviar</button>
-    </div>`
-    
+    </div>
+    <style> 
+    .boton_enviar_valores{
+        display: block;
+    }
+    </style>`
+
 }
 
 function guardarDatos() {
     estudianteHogwarts.nombre = document.querySelector("#nombre").value
     estudianteHogwarts.edad = document.querySelector("#edad").value
     estudianteHogwarts.linaje = document.querySelector("#linaje").value
-    
+    estudianteHogwarts.linaje.toLocaleLowerCase()
     console.log(estudianteHogwarts)
 }
 
-const formulValores = document.querySelector("#formValores")
-// console.log(formulValores);
+function botonSecundario() {
 
-// formulValores.addEventListener("click", () => {
-    //     const casa_cualidades = document.querySelector("#cualidades").value
-    //     estudianteHogwarts.cualidades.push(casa_cualidades)
-    //     console.log(estudianteHogwarts);
-    // })
+    let formularioRespuesta = document.querySelector("#cualidades")
+    let listaFormulario = formularioRespuesta.value.split("/")
+    estudianteHogwarts.casa = listaFormulario[0]
+    estudianteHogwarts.cualidades = listaFormulario[1]
+    console.log(estudianteHogwarts.casa);
+}
+
+    let formulValores = document.querySelector("#enviar");
+
+formulValores.addEventListener("click", function () {
+    botonSecundario()
+    console.log(estudianteHogwarts);
+    let casaSeleccionada = document.querySelector(".subtitulo_cualidades")
+    casaSeleccionada.textContent =`EL SOMBRERO SELECCIONADOR A DICHO QUE TU CASA ES: ${estudianteHogwarts.casa}`
+})
     
-
-
-// let formulValores = document.getElementById("formValores")
-
-// formulValores.addEventListener("change", () => {
-//     const casa_cualidades = document.querySelector("#cualidades").value
-//     estudianteHogwarts.cualidades.push(casa_cualidades)
-//     console.log(estudianteHogwarts);
-// })
-
 let cena = {
-    asignarCasa: function(estudiante, formulValores ) {
-        // Determinar la casa según las cualidades y el linaje
+    asignarCasa: function(estudiante ) {
         if (estudiante.cualidades.includes("Valor, fuerza, audacia")) {
             estudiante.casa = "Gryffindor";
         } else if (estudiante.cualidades.includes("Justicia, Lealtad, Paciencia") ||
@@ -102,6 +103,17 @@ let cena = {
 // console.log("casa", estudianteHogwarts.casa)
 // console.log(`${estudianteHogwarts.nombre} ha sido seleccionado para la casa de ${estudianteHogwarts.casa}.`);
 
+let clases = {
+    transformaciones: "Profesor Kevin Slughorn",
+    herbologia: "Profesor Maria Umbridge",
+    pociones: "Profesor Liliana McGonagall",
+    encantamientos: "Profesora Jackie",
+    defensaContraLasArtesOscuras: "Profesor Robinson Snape ",
+    animalesMagicos: "Profesor David Filch",
+    historiaDeMagia: "Profesor Ronald Sprout"
+    
+};
+
 let claseTransformaciones = {
     profesor: clases.transformaciones,
     hora: "9 AM",
@@ -128,16 +140,7 @@ let claseTransformaciones = {
 };
 
 console.log(estudianteHogwarts.nombre)
-let clases = {
-    transformaciones: "Profesor Kevin Slughorn",
-    herbologia: "Profesor Maria Umbridge",
-    pociones: "Profesor Liliana McGonagall",
-    encantamientos: "Profesora Jackie",
-    defensaContraLasArtesOscuras: "Profesor Robinson Snape ",
-    animalesMagicos: "Profesor David Filch",
-    historiaDeMagia: "Profesor Ronald Sprout"
-    
-};
+
 
 let boggartEjemplo = {
     formaOriginal: "Puerco araña"
